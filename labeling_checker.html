@@ -8,64 +8,61 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:#f8fafc;color:#1e293b;min-height:100vh}
 
-.header{background:#fff;border-bottom:1px solid #e2e8f0;padding:16px 28px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
+.header{background:#fff;border-bottom:1px solid #e2e8f0;padding:15px 28px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .header h1{font-size:17px;font-weight:700;color:#0f172a}
 .badge{background:#dbeafe;color:#1d4ed8;font-size:11px;padding:2px 10px;border-radius:99px;font-weight:700}
 
-.container{max-width:860px;margin:0 auto;padding:28px 20px;display:flex;flex-direction:column;gap:24px}
+.container{max-width:820px;margin:0 auto;padding:28px 20px;display:flex;flex-direction:column;gap:22px}
 
-/* 안내 배너 */
-.how{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px 20px}
-.how-title{font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:10px}
-.how-steps{display:flex;gap:0;align-items:stretch}
-.how-step{flex:1;text-align:center;padding:0 10px;position:relative}
-.how-step+.how-step::before{content:'→';position:absolute;left:-8px;top:50%;transform:translateY(-50%);color:#93c5fd;font-size:16px}
-.how-step .num{background:#2563eb;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:6px}
-.how-step .txt{font-size:12px;color:#1e40af;line-height:1.5}
+/* 제품 선택 탭 */
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{padding:10px 22px;border-radius:10px;border:2px solid #e2e8f0;background:#fff;font-size:14px;font-weight:700;cursor:pointer;transition:.15s;color:#64748b}
+.tab:hover{border-color:#93c5fd;color:#2563eb}
+.tab.active{border-color:#2563eb;background:#2563eb;color:#fff}
 
 /* 카드 */
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px}
 .card-title{font-size:15px;font-weight:700;color:#0f172a;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.step-badge{background:#2563eb;color:#fff;font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-dot{background:#2563eb;color:#fff;font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* 규정 목록 */
+.rules-list{display:flex;flex-direction:column;gap:6px}
+.rule-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;background:#f8fafc;border:1px solid #f1f5f9}
+.rule-num{font-size:11px;font-weight:700;color:#fff;background:#64748b;min-width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.rule-item.required .rule-num{background:#2563eb}
+.rule-body{flex:1}
+.rule-name{font-size:13px;font-weight:700;color:#1e293b}
+.rule-note{font-size:11px;color:#64748b;margin-top:3px;line-height:1.5}
+.rule-badge{font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px;margin-left:6px}
+.req{background:#dbeafe;color:#1d4ed8}
+.opt{background:#f1f5f9;color:#94a3b8}
+
+.source-tag{font-size:11px;color:#94a3b8;font-weight:400;margin-left:auto}
 
 /* 업로드 존 */
-.upload-zone{border:2px dashed #cbd5e1;border-radius:10px;padding:26px 20px;text-align:center;cursor:pointer;transition:.2s}
+.upload-zone{border:2px dashed #cbd5e1;border-radius:10px;padding:28px 20px;text-align:center;cursor:pointer;transition:.2s}
 .upload-zone:hover,.upload-zone.drag-over{border-color:#3b82f6;background:#eff6ff}
 .upload-zone .ico{font-size:32px;margin-bottom:8px}
-.upload-zone .lbl{font-size:13px;color:#64748b;font-weight:500}
+.upload-zone .lbl{font-size:13px;color:#64748b;font-weight:600}
 .upload-zone .sub{font-size:11px;color:#94a3b8;margin-top:4px}
+.pkg-preview{width:100%;max-height:280px;object-fit:contain;border:1px solid #e2e8f0;border-radius:10px;margin-top:12px;display:none}
 
-/* 썸네일 */
-.thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.thumb{position:relative;width:70px;height:70px;flex-shrink:0}
-.thumb img{width:100%;height:100%;object-fit:cover;border-radius:6px;border:1px solid #e2e8f0}
-.thumb-del{position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
+/* 프롬프트 영역 */
+.prompt-section{margin-top:18px;display:none}
+.section-label{font-size:12px;font-weight:700;color:#475569;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.prompt-box{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:14px;font-size:12px;line-height:1.7;color:#334155;max-height:180px;overflow-y:auto;white-space:pre-wrap;word-break:break-all}
+.attach-notice{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:12px;color:#713f12;margin-top:8px;line-height:1.5}
 
-/* 프롬프트 박스 */
-.prompt-wrap{margin-top:14px;display:none}
-.prompt-label{font-size:12px;font-weight:700;color:#475569;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
-.prompt-box{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:14px;font-size:12px;line-height:1.7;color:#334155;max-height:160px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;user-select:all}
-.attach-notice{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:12px;color:#713f12;margin-top:10px;line-height:1.6}
-.attach-notice strong{color:#92400e}
+.divider{border:none;border-top:1px solid #f1f5f9;margin:18px 0}
 
-/* 붙여넣기 영역 */
-.paste-wrap{margin-top:14px}
-.paste-label{font-size:12px;font-weight:700;color:#475569;margin-bottom:6px}
-.paste-box{width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:#334155;resize:vertical;min-height:100px;font-family:inherit;outline:none}
+/* 붙여넣기 */
+.paste-box{width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:#334155;resize:vertical;min-height:110px;font-family:inherit;outline:none;transition:.15s}
 .paste-box:focus{border-color:#3b82f6}
 .paste-box::placeholder{color:#cbd5e1}
 
-/* 저장된 규정 */
-.rules-saved{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-top:14px;display:none}
-.rules-saved-title{font-size:12px;font-weight:700;color:#15803d;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
-.rules-saved-body{font-size:12px;color:#166534;line-height:1.7;max-height:160px;overflow-y:auto;white-space:pre-wrap}
-
-/* 패키지 미리보기 */
-.pkg-preview{width:100%;max-height:260px;object-fit:contain;border:1px solid #e2e8f0;border-radius:8px;margin-top:12px;display:none}
-
-/* 결과 그리드 */
-.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.rbox{border-radius:10px;padding:14px}
+/* 결과 */
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.rbox{border-radius:10px;padding:16px}
 .rbox.miss{background:#fef2f2;border:1px solid #fecaca}
 .rbox.wrong{background:#fff7ed;border:1px solid #fed7aa}
 .rbox.amb{background:#fefce8;border:1px solid #fde68a}
@@ -85,19 +82,17 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:#f8fafc;colo
 .btn{padding:9px 18px;border-radius:8px;border:none;font-size:13px;font-weight:700;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:6px}
 .btn-blue{background:#2563eb;color:#fff}.btn-blue:hover{background:#1d4ed8}.btn-blue:disabled{background:#93c5fd;cursor:not-allowed}
 .btn-green{background:#16a34a;color:#fff}.btn-green:hover{background:#15803d}.btn-green:disabled{background:#86efac;cursor:not-allowed}
-.btn-indigo{background:#4f46e5;color:#fff}.btn-indigo:hover{background:#4338ca}
+.btn-violet{background:#7c3aed;color:#fff}.btn-violet:hover{background:#6d28d9}
 .btn-ghost{background:#fff;color:#64748b;border:1px solid #e2e8f0}.btn-ghost:hover{background:#f8fafc}
 .btn-sm{padding:5px 12px;font-size:12px}
-.btn-copy{background:#fff;color:#2563eb;border:1px solid #bfdbfe;padding:4px 10px;font-size:11px;font-weight:700;border-radius:6px;cursor:pointer}.btn-copy:hover{background:#eff6ff}
+.btn-copy{background:#fff;border:1px solid #bfdbfe;color:#2563eb;padding:4px 10px;font-size:11px;font-weight:700;border-radius:6px;cursor:pointer}.btn-copy:hover{background:#eff6ff}
 
 .row{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
-
-.divider{border:none;border-top:1px solid #f1f5f9;margin:18px 0}
 
 .toast{position:fixed;bottom:24px;right:24px;background:#0f172a;color:#fff;padding:11px 20px;border-radius:8px;font-size:13px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none;z-index:999}
 .toast.show{opacity:1}
 
-@media(max-width:600px){.result-grid{grid-template-columns:1fr}.how-steps{flex-direction:column;gap:8px}.how-step+.how-step::before{display:none}}
+@media(max-width:600px){.result-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -105,192 +100,189 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:#f8fafc;colo
 <div class="header">
   <span style="font-size:22px">🦷</span>
   <h1>구강용품 표기기준 확인</h1>
-  <span class="badge">Claude.ai 연동</span>
+  <span class="badge">식약처 고시 내장</span>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <div class="container">
 
-  <!-- 사용 방법 -->
-  <div class="how">
-    <div class="how-title">📌 사용 방법</div>
-    <div class="how-steps">
-      <div class="how-step"><div class="num">1</div><div class="txt">규정 스크린샷<br>업로드</div></div>
-      <div class="how-step"><div class="num">2</div><div class="txt">프롬프트 복사<br>→ Claude.ai에 붙여넣기</div></div>
-      <div class="how-step"><div class="num">3</div><div class="txt">Claude 답변을<br>여기에 붙여넣기</div></div>
-      <div class="how-step"><div class="num">4</div><div class="txt">패키지 사진으로<br>표기 검사</div></div>
+  <!-- ① 제품 선택 -->
+  <div>
+    <div style="font-size:12px;font-weight:700;color:#64748b;margin-bottom:10px">검사할 제품 선택</div>
+    <div class="tabs" id="tabs">
+      <button class="tab active" onclick="selectProduct('칫솔')">🪥 칫솔 · 치간칫솔</button>
+      <button class="tab" onclick="selectProduct('치실')">🧵 치실</button>
+      <button class="tab" onclick="selectProduct('설태제거기')">👅 설태제거기</button>
     </div>
   </div>
 
-  <!-- ═══ STEP 1 : 규정 입력 ═══ -->
+  <!-- ② 필수 표기 항목 (규정 내장) -->
   <div class="card">
     <div class="card-title">
-      <span class="step-badge">1</span> 표기기준 규정 입력
+      <span class="step-dot">1</span>
+      <span id="ruleTitle">칫솔 · 치간칫솔 필수 표기 항목</span>
+      <span class="source-tag" id="ruleSource">식약처장관고시 제2025-34호</span>
     </div>
-
-    <div class="upload-zone" id="regZone"
-      onclick="document.getElementById('regFile').click()"
-      ondragover="onDragOver(event,'regZone')" ondragleave="onDragLeave('regZone')" ondrop="onDropReg(event)">
-      <div class="ico">📋</div>
-      <div class="lbl">식약처 고시 스크린샷 업로드</div>
-      <div class="sub">PNG · JPG · WEBP · 여러 장 가능</div>
-    </div>
-    <input type="file" id="regFile" accept="image/*" multiple style="display:none" onchange="addRegFiles(this.files);this.value=''">
-
-    <div class="thumbs" id="regThumbs"></div>
-
-    <div class="row">
-      <button class="btn btn-blue" id="genRegPromptBtn" onclick="genRegPrompt()" disabled>① 프롬프트 생성</button>
-      <button class="btn btn-ghost btn-sm" onclick="clearReg()">초기화</button>
-    </div>
-
-    <!-- 생성된 프롬프트 -->
-    <div class="prompt-wrap" id="regPromptWrap">
-      <hr class="divider">
-      <div class="prompt-label">
-        <span>📝 Claude.ai에 붙여넣을 프롬프트</span>
-        <button class="btn-copy" onclick="copyRegPrompt()">복사</button>
-      </div>
-      <div class="prompt-box" id="regPromptBox"></div>
-      <div class="attach-notice" id="regAttachNotice"></div>
-      <div class="row">
-        <button class="btn btn-indigo btn-sm" onclick="window.open('https://claude.ai','_blank')">② Claude.ai 열기 →</button>
-        <span style="font-size:12px;color:#94a3b8">이미지 첨부 + 프롬프트 붙여넣기 후 전송</span>
-      </div>
-
-      <hr class="divider">
-      <div class="paste-wrap">
-        <div class="paste-label">③ Claude 답변을 여기에 붙여넣기</div>
-        <textarea class="paste-box" id="regPasteBox" placeholder="Claude.ai의 답변을 복사해서 여기에 붙여넣으세요..."></textarea>
-        <div class="row">
-          <button class="btn btn-green" onclick="saveRules()">규정 저장하기</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 저장된 규정 표시 -->
-    <div class="rules-saved" id="rulesSaved">
-      <div class="rules-saved-title">
-        <span>✅ 저장된 규정</span>
-        <button class="btn-copy" onclick="clearSavedRules()">삭제</button>
-      </div>
-      <div class="rules-saved-body" id="rulesSavedBody"></div>
-    </div>
+    <div class="rules-list" id="rulesList"></div>
   </div>
 
-  <!-- ═══ STEP 2 : 패키지 검사 ═══ -->
+  <!-- ③ 패키지 검사 -->
   <div class="card">
     <div class="card-title">
-      <span class="step-badge">2</span> 패키지 표기 검사
+      <span class="step-dot">2</span>패키지 표기 검사
     </div>
 
     <div class="upload-zone" id="pkgZone"
       onclick="document.getElementById('pkgFile').click()"
-      ondragover="onDragOver(event,'pkgZone')" ondragleave="onDragLeave('pkgZone')" ondrop="onDropPkg(event)">
+      ondragover="onDragOver(event)" ondragleave="onDragLeave()" ondrop="onDrop(event)">
       <div class="ico">📦</div>
       <div class="lbl">패키지 이미지 업로드</div>
-      <div class="sub">PNG · JPG · WEBP · 1장</div>
+      <div class="sub">PNG · JPG · WEBP · 클릭 또는 드래그</div>
     </div>
     <input type="file" id="pkgFile" accept="image/*" style="display:none" onchange="setPkg(this.files[0]);this.value=''">
-
     <img id="pkgPreview" class="pkg-preview" alt="패키지 미리보기">
 
     <div class="row">
-      <button class="btn btn-blue" id="genCheckPromptBtn" onclick="genCheckPrompt()" disabled>① 프롬프트 생성</button>
+      <button class="btn btn-blue" id="genBtn" onclick="genPrompt()" disabled>① 프롬프트 생성</button>
       <button class="btn btn-ghost btn-sm" onclick="clearPkg()">초기화</button>
     </div>
-    <p style="font-size:12px;color:#94a3b8;margin-top:8px">※ STEP 1에서 규정을 먼저 저장해주세요</p>
 
     <!-- 생성된 프롬프트 -->
-    <div class="prompt-wrap" id="pkgPromptWrap">
+    <div class="prompt-section" id="promptSection">
       <hr class="divider">
-      <div class="prompt-label">
+      <div class="section-label">
         <span>📝 Claude.ai에 붙여넣을 프롬프트</span>
-        <button class="btn-copy" onclick="copyPkgPrompt()">복사</button>
+        <button class="btn-copy" onclick="copyPrompt()">복사</button>
       </div>
-      <div class="prompt-box" id="pkgPromptBox"></div>
-      <div class="attach-notice" id="pkgAttachNotice"></div>
+      <div class="prompt-box" id="promptBox"></div>
+      <div class="attach-notice" id="attachNotice"></div>
       <div class="row">
-        <button class="btn btn-indigo btn-sm" onclick="window.open('https://claude.ai','_blank')">② Claude.ai 열기 →</button>
-        <span style="font-size:12px;color:#94a3b8">패키지 이미지 첨부 + 프롬프트 붙여넣기 후 전송</span>
+        <button class="btn btn-violet" onclick="window.open('https://claude.ai','_blank')">② Claude.ai 열기 →</button>
+        <span style="font-size:12px;color:#94a3b8">이미지 첨부 후 프롬프트 붙여넣기 → 전송</span>
       </div>
 
       <hr class="divider">
-      <div class="paste-wrap">
-        <div class="paste-label">③ Claude 답변을 여기에 붙여넣기</div>
-        <textarea class="paste-box" id="pkgPasteBox" placeholder="Claude.ai의 답변을 복사해서 여기에 붙여넣으세요..."></textarea>
-        <div class="row">
-          <button class="btn btn-green" onclick="parseResult()">결과 분석하기</button>
-        </div>
+      <div class="section-label">③ Claude 답변을 여기에 붙여넣기</div>
+      <textarea class="paste-box" id="pasteBox" placeholder="Claude.ai의 답변을 복사해서 붙여넣으세요..."></textarea>
+      <div class="row">
+        <button class="btn btn-green" onclick="parseResult()">결과 분석하기</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══ STEP 3 : 결과 ═══ -->
+  <!-- ④ 결과 -->
   <div class="card" id="resultCard" style="display:none">
     <div class="card-title" style="justify-content:space-between">
-      <span style="display:flex;align-items:center;gap:8px">
-        <span class="step-badge">3</span> 검사 결과
-      </span>
+      <span style="display:flex;align-items:center;gap:8px"><span class="step-dot">3</span>검사 결과</span>
       <button class="btn btn-ghost btn-sm" onclick="copyResult()">결과 복사</button>
     </div>
     <div class="result-grid" id="resultGrid"></div>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <script>
-// ── 상태 ──────────────────────────────────────────────────────────
-let regImages = [];   // [{url, name}]
-let pkgImage  = null; // {url, name}
-let savedRules = '';  // localStorage에 저장된 규정
-let lastResult = '';
-
-// ── 초기화 ────────────────────────────────────────────────────────
-window.onload = () => {
-  const r = localStorage.getItem('oral_rules');
-  if (r) { savedRules = r; showSavedRules(); }
-  syncBtns();
+// ════════════════════════════════════════════════════════
+//  내장 규정 데이터
+// ════════════════════════════════════════════════════════
+const RULES = {
+  칫솔: {
+    title: '칫솔 · 치간칫솔 필수 표기 항목',
+    source: '식약처장관고시 제2025-34호',
+    items: [
+      { n:1,  name:'제품명',                        req:true,  note:'' },
+      { n:2,  name:'내용량',                        req:true,  note:'칫솔모·치간칫솔은 개수(개)로 표기' },
+      { n:3,  name:'제조업자 및 수입업자의 상호와 주소', req:true,  note:'' },
+      { n:4,  name:'제조연월',                      req:true,  note:'' },
+      { n:5,  name:'사용방법',                      req:false, note:'필요한 경우에 한함' },
+      { n:6,  name:'재질',                          req:true,  note:'부위별 각각 구분 표시 — 칫솔모 / 칫솔대 / 손잡이\n예) 칫솔모=올리부틸렌테레프탈레이트, 칫솔대=폴리프로필렌, 손잡이=폴리프로필렌+고무재' },
+    ]
+  },
+  치실: {
+    title: '치실 필수 표기 항목',
+    source: '식약처 고시',
+    items: [
+      { n:1,  name:'"위생용품" 글자',                req:true,  note:'포장에 "위생용품" 문구 반드시 표시' },
+      { n:2,  name:'제품명',                        req:true,  note:'' },
+      { n:3,  name:'영업소의 명칭 및 소재지',          req:true,  note:'' },
+      { n:4,  name:'내용량',                        req:true,  note:'' },
+      { n:5,  name:'제조연월일',                    req:true,  note:'' },
+      { n:6,  name:'재질명 및 성분명',               req:true,  note:'일반형: 재질·성분 구분 표시\n손잡이 고정형: 실과 손잡이에 사용된 재질 각각 구분, 실에 사용된 성분도 구분 표시' },
+      { n:7,  name:'위생용품의 유형',                req:true,  note:'일반용 치실 또는 어린이용 치실' },
+      { n:8,  name:'사용 및 보관상 주의사항',          req:true,  note:'어린이용: "어린이가 사용할 때에는 보호자의 도움이 필요합니다" 문구 필수' },
+      { n:9,  name:'사용방법',                      req:false, note:'해당하는 경우에 한함' },
+      { n:10, name:'적용대상',                      req:true,  note:'어린이용 치실은 사용연령(또는 권장사용연령)을 "0~00세" 범위로 표시' },
+    ]
+  },
+  설태제거기: {
+    title: '설태제거기 필수 표기 항목',
+    source: '식약처 고시',
+    items: [
+      { n:1,  name:'"위생용품" 글자',                req:true,  note:'포장에 "위생용품" 문구 반드시 표시' },
+      { n:2,  name:'제품명',                        req:true,  note:'' },
+      { n:3,  name:'영업소의 명칭 및 소재지',          req:true,  note:'' },
+      { n:4,  name:'내용량',                        req:true,  note:'' },
+      { n:5,  name:'제조연월일',                    req:true,  note:'' },
+      { n:6,  name:'재질명',                        req:true,  note:'혀와 닿는 부위와 손잡이에 사용된 재질을 각각 구분하여 표시' },
+      { n:7,  name:'위생용품의 유형',                req:true,  note:'일반용 설태제거기 또는 어린이용 설태제거기' },
+      { n:8,  name:'사용 및 보관상 주의사항',          req:true,  note:'어린이용: "어린이가 사용할 때에는 보호자의 도움이 필요합니다" 문구 필수' },
+      { n:9,  name:'사용방법',                      req:false, note:'해당하는 경우에 한함' },
+      { n:10, name:'적용대상',                      req:true,  note:'어린이용 설태제거기는 사용연령(또는 권장사용연령)을 "0~00세" 범위로 표시' },
+    ]
+  }
 };
 
-// ── 드래그앤드롭 ──────────────────────────────────────────────────
-function onDragOver(e, id) { e.preventDefault(); document.getElementById(id).classList.add('drag-over'); }
-function onDragLeave(id)   { document.getElementById(id).classList.remove('drag-over'); }
-function onDropReg(e)  { e.preventDefault(); onDragLeave('regZone'); addRegFiles(e.dataTransfer.files); }
-function onDropPkg(e)  { e.preventDefault(); onDragLeave('pkgZone'); const f=[...e.dataTransfer.files].find(f=>f.type.startsWith('image/')); if(f) setPkg(f); }
+// ════════════════════════════════════════════════════════
+//  상태
+// ════════════════════════════════════════════════════════
+let currentProduct = '칫솔';
+let pkgImage = null;
+let lastResult = '';
 
-// ── 규정 이미지 ───────────────────────────────────────────────────
-function addRegFiles(fileList) {
-  [...fileList].filter(f => f.type.startsWith('image/')).forEach(file => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      regImages.push({ url: e.target.result, name: file.name });
-      renderRegThumbs(); syncBtns();
-    };
-    reader.readAsDataURL(file);
-  });
+// ════════════════════════════════════════════════════════
+//  초기화
+// ════════════════════════════════════════════════════════
+window.onload = () => { renderRules(); };
+
+// ════════════════════════════════════════════════════════
+//  제품 선택
+// ════════════════════════════════════════════════════════
+function selectProduct(key) {
+  currentProduct = key;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  renderRules();
+  // 프롬프트 초기화
+  document.getElementById('promptSection').style.display = 'none';
+  document.getElementById('pasteBox').value = '';
+  document.getElementById('resultCard').style.display = 'none';
 }
 
-function renderRegThumbs() {
-  document.getElementById('regThumbs').innerHTML = regImages.map((img, i) => `
-    <div class="thumb">
-      <img src="${img.url}" alt="${img.name}">
-      <button class="thumb-del" onclick="removeReg(${i})">×</button>
+function renderRules() {
+  const r = RULES[currentProduct];
+  document.getElementById('ruleTitle').textContent = r.title;
+  document.getElementById('ruleSource').textContent = r.source;
+  document.getElementById('rulesList').innerHTML = r.items.map(item => `
+    <div class="rule-item ${item.req ? 'required' : ''}">
+      <div class="rule-num">${item.n}</div>
+      <div class="rule-body">
+        <div class="rule-name">
+          ${esc(item.name)}
+          <span class="rule-badge ${item.req ? 'req' : 'opt'}">${item.req ? '필수' : '조건부'}</span>
+        </div>
+        ${item.note ? `<div class="rule-note">${esc(item.note).replace(/\n/g,'<br>')}</div>` : ''}
+      </div>
     </div>`).join('');
 }
 
-function removeReg(i) { regImages.splice(i, 1); renderRegThumbs(); syncBtns(); }
+// ════════════════════════════════════════════════════════
+//  패키지 이미지
+// ════════════════════════════════════════════════════════
+function onDragOver(e) { e.preventDefault(); document.getElementById('pkgZone').classList.add('drag-over'); }
+function onDragLeave()  { document.getElementById('pkgZone').classList.remove('drag-over'); }
+function onDrop(e)      { e.preventDefault(); onDragLeave(); const f=[...e.dataTransfer.files].find(f=>f.type.startsWith('image/')); if(f) setPkg(f); }
 
-function clearReg() {
-  regImages = [];
-  renderRegThumbs();
-  document.getElementById('regPromptWrap').style.display = 'none';
-  document.getElementById('regPasteBox').value = '';
-  syncBtns();
-}
-
-// ── 패키지 이미지 ─────────────────────────────────────────────────
 function setPkg(file) {
   if (!file || !file.type.startsWith('image/')) return;
   const reader = new FileReader();
@@ -299,7 +291,7 @@ function setPkg(file) {
     const prev = document.getElementById('pkgPreview');
     prev.src = pkgImage.url; prev.style.display = 'block';
     document.getElementById('pkgZone').style.display = 'none';
-    syncBtns();
+    document.getElementById('genBtn').disabled = false;
   };
   reader.readAsDataURL(file);
 }
@@ -308,92 +300,35 @@ function clearPkg() {
   pkgImage = null;
   document.getElementById('pkgPreview').style.display = 'none';
   document.getElementById('pkgZone').style.display = 'block';
-  document.getElementById('pkgPromptWrap').style.display = 'none';
-  document.getElementById('pkgPasteBox').value = '';
-  syncBtns();
+  document.getElementById('genBtn').disabled = true;
+  document.getElementById('promptSection').style.display = 'none';
+  document.getElementById('pasteBox').value = '';
+  document.getElementById('resultCard').style.display = 'none';
 }
 
-// ── 버튼 상태 ─────────────────────────────────────────────────────
-function syncBtns() {
-  document.getElementById('genRegPromptBtn').disabled  = regImages.length === 0;
-  document.getElementById('genCheckPromptBtn').disabled = !(pkgImage && savedRules);
+// ════════════════════════════════════════════════════════
+//  프롬프트 생성
+// ════════════════════════════════════════════════════════
+function buildRulesText() {
+  const r = RULES[currentProduct];
+  return r.items.map(item => {
+    const badge = item.req ? '[필수]' : '[조건부]';
+    const note  = item.note ? `\n     → ${item.note}` : '';
+    return `  ${item.n}. ${item.name} ${badge}${note}`;
+  }).join('\n');
 }
 
-// ── 저장된 규정 표시 ──────────────────────────────────────────────
-function showSavedRules() {
-  const el = document.getElementById('rulesSaved');
-  if (savedRules) {
-    el.style.display = 'block';
-    document.getElementById('rulesSavedBody').textContent = savedRules;
-  } else {
-    el.style.display = 'none';
-  }
-  syncBtns();
-}
+function genPrompt() {
+  if (!pkgImage) { toast('패키지 이미지를 먼저 올려주세요'); return; }
+  const r = RULES[currentProduct];
 
-function clearSavedRules() {
-  savedRules = '';
-  localStorage.removeItem('oral_rules');
-  showSavedRules();
-}
+  const prompt =
+`아래는 식약처 고시 기준에 따른 ${r.title}입니다:
 
-// ── STEP 1 : 규정 추출 프롬프트 생성 ─────────────────────────────
-function genRegPrompt() {
-  if (!regImages.length) { toast('이미지를 먼저 올려주세요'); return; }
+${buildRulesText()}
 
-  const prompt = `아래 이미지들은 식약처 고시의 스크린샷입니다.
-
-구강용품(치실, 칫솔, 치간칫솔, 치경 등)의 포장·용기에 반드시 표기해야 할 항목들을 모두 추출해주세요.
-
-다음 형식으로 정리해주세요:
-
-## 필수 표기 항목
-
-각 항목에 대해:
-- 항목명
-- 세부 표기 기준 (기재 방법, 위치, 크기 등 조건 포함)
-- 관련 조항 (조문 번호가 있으면)
-
-원문 내용을 최대한 정확하게 반영하고, 어떤 항목도 빠뜨리지 마세요.`;
-
-  document.getElementById('regPromptBox').textContent = prompt;
-
-  const names = regImages.map((img, i) => `  ${i+1}장. ${img.name}`).join('\n');
-  document.getElementById('regAttachNotice').innerHTML =
-    `<strong>📎 첨부할 이미지 (${regImages.length}장):</strong><br>${names.replace(/\n/g,'<br>')}`;
-
-  document.getElementById('regPromptWrap').style.display = 'block';
-  document.getElementById('regPromptWrap').scrollIntoView({ behavior:'smooth', block:'start' });
-  toast('프롬프트 생성됨! Claude.ai에서 이미지를 첨부하고 붙여넣으세요');
-}
-
-function copyRegPrompt() {
-  const text = document.getElementById('regPromptBox').textContent;
-  navigator.clipboard.writeText(text).then(() => toast('프롬프트 복사됨!'));
-}
-
-// ── STEP 1 : 규정 저장 ───────────────────────────────────────────
-function saveRules() {
-  const text = document.getElementById('regPasteBox').value.trim();
-  if (!text) { toast('Claude 답변을 붙여넣어 주세요'); return; }
-  savedRules = text;
-  localStorage.setItem('oral_rules', savedRules);
-  showSavedRules();
-  toast('규정이 저장되었습니다!');
-}
-
-// ── STEP 2 : 패키지 검사 프롬프트 생성 ───────────────────────────
-function genCheckPrompt() {
-  if (!pkgImage)    { toast('패키지 이미지를 먼저 올려주세요'); return; }
-  if (!savedRules)  { toast('STEP 1에서 규정을 먼저 저장해주세요'); return; }
-
-  const prompt = `아래는 식약처 고시에서 추출한 구강용품 필수 표기 기준입니다:
-
-${savedRules}
-
-───
-
-위 기준을 참고하여, 첨부한 패키지 이미지의 표기사항을 검사해주세요.
+─────────────────────────────
+첨부한 패키지 이미지를 위 기준과 비교하여 검사해주세요.
 
 결과는 반드시 아래 4개 섹션 형식으로 작성해주세요:
 
@@ -411,29 +346,27 @@ ${savedRules}
 
 각 항목에 대해 간결하고 구체적으로 설명해주세요.`;
 
-  document.getElementById('pkgPromptBox').textContent = prompt;
-  document.getElementById('pkgAttachNotice').innerHTML =
-    `<strong>📎 첨부할 이미지:</strong> ${pkgImage.name}`;
-
-  document.getElementById('pkgPromptWrap').style.display = 'block';
-  document.getElementById('pkgPromptWrap').scrollIntoView({ behavior:'smooth', block:'start' });
-  toast('프롬프트 생성됨! Claude.ai에서 패키지 이미지를 첨부하고 붙여넣으세요');
+  document.getElementById('promptBox').textContent = prompt;
+  document.getElementById('attachNotice').innerHTML =
+    `<strong>📎 첨부할 이미지:</strong> ${esc(pkgImage.name)}<br>이미지를 Claude.ai에 첨부하고 위 프롬프트를 붙여넣은 후 전송하세요.`;
+  document.getElementById('promptSection').style.display = 'block';
+  document.getElementById('promptSection').scrollIntoView({ behavior:'smooth', block:'start' });
+  toast('프롬프트 생성 완료!');
 }
 
-function copyPkgPrompt() {
-  const text = document.getElementById('pkgPromptBox').textContent;
-  navigator.clipboard.writeText(text).then(() => toast('프롬프트 복사됨!'));
+function copyPrompt() {
+  navigator.clipboard.writeText(document.getElementById('promptBox').textContent)
+    .then(() => toast('프롬프트 복사됨!'));
 }
 
-// ── STEP 3 : 결과 파싱 ───────────────────────────────────────────
+// ════════════════════════════════════════════════════════
+//  결과 파싱
+// ════════════════════════════════════════════════════════
 function parseResult() {
-  const text = document.getElementById('pkgPasteBox').value.trim();
+  const text = document.getElementById('pasteBox').value.trim();
   if (!text) { toast('Claude 답변을 붙여넣어 주세요'); return; }
   lastResult = text;
-  showResult(text);
-}
 
-function showResult(text) {
   const sections = [
     { cls:'miss',  title:'❌ 누락된 항목',  key:'누락된 항목' },
     { cls:'wrong', title:'⚠️ 잘못된 표기', key:'잘못된 표기' },
@@ -443,11 +376,10 @@ function showResult(text) {
 
   document.getElementById('resultGrid').innerHTML = sections.map(s => {
     const body = extractSection(text, s.key) || '정보 없음';
-    return `
-      <div class="rbox ${s.cls}">
-        <div class="rbox-title">${s.title}</div>
-        <div class="rbox-body">${esc(body)}</div>
-      </div>`;
+    return `<div class="rbox ${s.cls}">
+      <div class="rbox-title">${s.title}</div>
+      <div class="rbox-body">${esc(body)}</div>
+    </div>`;
   }).join('');
 
   document.getElementById('resultCard').style.display = 'block';
@@ -463,12 +395,14 @@ function extractSection(text, heading) {
 
 function copyResult() {
   if (!lastResult) return;
-  navigator.clipboard.writeText(lastResult).then(() => toast('결과가 복사되었습니다'));
+  navigator.clipboard.writeText(lastResult).then(() => toast('결과 복사됨!'));
 }
 
-// ── 유틸 ─────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════════
+//  유틸
+// ════════════════════════════════════════════════════════
 function esc(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 let _tt;
