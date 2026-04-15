@@ -8,186 +8,230 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:#f8fafc;color:#1e293b;min-height:100vh}
 
-/* Header */
 .header{background:#fff;border-bottom:1px solid #e2e8f0;padding:16px 28px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
 .header h1{font-size:17px;font-weight:700;color:#0f172a}
 .badge{background:#dbeafe;color:#1d4ed8;font-size:11px;padding:2px 10px;border-radius:99px;font-weight:700}
 
-/* Layout */
-.container{max-width:1100px;margin:0 auto;padding:24px;display:flex;flex-direction:column;gap:20px}
+.container{max-width:860px;margin:0 auto;padding:28px 20px;display:flex;flex-direction:column;gap:24px}
 
-/* API key bar */
-.api-bar{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 20px;display:flex;align-items:center;gap:12px}
-.api-bar label{font-size:13px;font-weight:600;color:#475569;white-space:nowrap}
-.api-bar input{flex:1;padding:8px 12px;border:1px solid #e2e8f0;border-radius:8px;font-size:13px;font-family:monospace;outline:none;color:#0f172a;background:#f8fafc}
-.api-bar input:focus{border-color:#3b82f6;background:#fff}
-.api-saved{font-size:12px;font-weight:700;color:#16a34a;white-space:nowrap}
+/* 안내 배너 */
+.how{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px 20px}
+.how-title{font-size:13px;font-weight:700;color:#1d4ed8;margin-bottom:10px}
+.how-steps{display:flex;gap:0;align-items:stretch}
+.how-step{flex:1;text-align:center;padding:0 10px;position:relative}
+.how-step+.how-step::before{content:'→';position:absolute;left:-8px;top:50%;transform:translateY(-50%);color:#93c5fd;font-size:16px}
+.how-step .num{background:#2563eb;color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:6px}
+.how-step .txt{font-size:12px;color:#1e40af;line-height:1.5}
 
-/* Grid */
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+/* 카드 */
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:22px}
+.card-title{font-size:15px;font-weight:700;color:#0f172a;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.step-badge{background:#2563eb;color:#fff;font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 
-/* Card */
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px}
-.card-title{font-size:14px;font-weight:700;color:#0f172a;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.step{background:#2563eb;color:#fff;font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-
-/* Upload zone */
-.upload-zone{border:2px dashed #cbd5e1;border-radius:10px;padding:28px 20px;text-align:center;cursor:pointer;transition:.2s}
+/* 업로드 존 */
+.upload-zone{border:2px dashed #cbd5e1;border-radius:10px;padding:26px 20px;text-align:center;cursor:pointer;transition:.2s}
 .upload-zone:hover,.upload-zone.drag-over{border-color:#3b82f6;background:#eff6ff}
-.upload-zone .ico{font-size:34px;margin-bottom:8px}
-.upload-zone .label{font-size:13px;color:#64748b;font-weight:500}
+.upload-zone .ico{font-size:32px;margin-bottom:8px}
+.upload-zone .lbl{font-size:13px;color:#64748b;font-weight:500}
 .upload-zone .sub{font-size:11px;color:#94a3b8;margin-top:4px}
 
-/* Thumbnails */
+/* 썸네일 */
 .thumbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.thumb{position:relative;width:68px;height:68px;flex-shrink:0}
+.thumb{position:relative;width:70px;height:70px;flex-shrink:0}
 .thumb img{width:100%;height:100%;object-fit:cover;border-radius:6px;border:1px solid #e2e8f0}
-.thumb-del{position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;line-height:1}
+.thumb-del{position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
 
-/* Buttons */
-.btn{padding:9px 18px;border-radius:8px;border:none;font-size:13px;font-weight:700;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:6px}
-.btn-blue{background:#2563eb;color:#fff}
-.btn-blue:hover{background:#1d4ed8}
-.btn-blue:disabled{background:#93c5fd;cursor:not-allowed}
-.btn-green{background:#16a34a;color:#fff}
-.btn-green:hover{background:#15803d}
-.btn-green:disabled{background:#86efac;cursor:not-allowed}
-.btn-ghost{background:#fff;color:#64748b;border:1px solid #e2e8f0;padding:7px 14px}
-.btn-ghost:hover{background:#f8fafc}
-.btn-sm{padding:6px 12px;font-size:12px}
+/* 프롬프트 박스 */
+.prompt-wrap{margin-top:14px;display:none}
+.prompt-label{font-size:12px;font-weight:700;color:#475569;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.prompt-box{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:14px;font-size:12px;line-height:1.7;color:#334155;max-height:160px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;user-select:all}
+.attach-notice{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:12px;color:#713f12;margin-top:10px;line-height:1.6}
+.attach-notice strong{color:#92400e}
 
-.row{display:flex;align-items:center;gap:8px;margin-top:12px}
-.row-right{margin-left:auto}
+/* 붙여넣기 영역 */
+.paste-wrap{margin-top:14px}
+.paste-label{font-size:12px;font-weight:700;color:#475569;margin-bottom:6px}
+.paste-box{width:100%;border:1px solid #e2e8f0;border-radius:8px;padding:12px;font-size:12px;line-height:1.7;color:#334155;resize:vertical;min-height:100px;font-family:inherit;outline:none}
+.paste-box:focus{border-color:#3b82f6}
+.paste-box::placeholder{color:#cbd5e1}
 
-/* Rules box */
-.rules-box{margin-top:12px;border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc;padding:14px;max-height:220px;overflow-y:auto;font-size:12px;line-height:1.7;color:#374151;white-space:pre-wrap}
-.rules-empty{color:#94a3b8;text-align:center;padding:16px;font-size:13px}
+/* 저장된 규정 */
+.rules-saved{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-top:14px;display:none}
+.rules-saved-title{font-size:12px;font-weight:700;color:#15803d;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.rules-saved-body{font-size:12px;color:#166534;line-height:1.7;max-height:160px;overflow-y:auto;white-space:pre-wrap}
 
-/* Package preview */
-.pkg-preview{width:100%;max-height:240px;object-fit:contain;border:1px solid #e2e8f0;border-radius:8px;margin-top:12px;display:none}
+/* 패키지 미리보기 */
+.pkg-preview{width:100%;max-height:260px;object-fit:contain;border:1px solid #e2e8f0;border-radius:8px;margin-top:12px;display:none}
 
-/* Result */
+/* 결과 그리드 */
 .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.result-box{border-radius:10px;padding:14px}
-.result-box.missing{background:#fef2f2;border:1px solid #fecaca}
-.result-box.wrong{background:#fff7ed;border:1px solid #fed7aa}
-.result-box.ambiguous{background:#fefce8;border:1px solid #fde68a}
-.result-box.ok{background:#f0fdf4;border:1px solid #bbf7d0}
-.result-box-title{font-size:13px;font-weight:700;margin-bottom:8px}
-.result-box.missing .result-box-title{color:#dc2626}
-.result-box.wrong .result-box-title{color:#ea580c}
-.result-box.ambiguous .result-box-title{color:#ca8a04}
-.result-box.ok .result-box-title{color:#16a34a}
-.result-box-body{font-size:13px;line-height:1.7;white-space:pre-wrap}
-.result-box.missing .result-box-body{color:#7f1d1d}
-.result-box.wrong .result-box-body{color:#7c2d12}
-.result-box.ambiguous .result-box-body{color:#713f12}
-.result-box.ok .result-box-body{color:#14532d}
+.rbox{border-radius:10px;padding:14px}
+.rbox.miss{background:#fef2f2;border:1px solid #fecaca}
+.rbox.wrong{background:#fff7ed;border:1px solid #fed7aa}
+.rbox.amb{background:#fefce8;border:1px solid #fde68a}
+.rbox.ok{background:#f0fdf4;border:1px solid #bbf7d0}
+.rbox-title{font-size:13px;font-weight:700;margin-bottom:8px}
+.rbox.miss .rbox-title{color:#dc2626}
+.rbox.wrong .rbox-title{color:#ea580c}
+.rbox.amb .rbox-title{color:#ca8a04}
+.rbox.ok .rbox-title{color:#16a34a}
+.rbox-body{font-size:12px;line-height:1.7;white-space:pre-wrap}
+.rbox.miss .rbox-body{color:#7f1d1d}
+.rbox.wrong .rbox-body{color:#7c2d12}
+.rbox.amb .rbox-body{color:#713f12}
+.rbox.ok .rbox-body{color:#14532d}
 
-/* Spinner */
-.spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* 버튼 */
+.btn{padding:9px 18px;border-radius:8px;border:none;font-size:13px;font-weight:700;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+.btn-blue{background:#2563eb;color:#fff}.btn-blue:hover{background:#1d4ed8}.btn-blue:disabled{background:#93c5fd;cursor:not-allowed}
+.btn-green{background:#16a34a;color:#fff}.btn-green:hover{background:#15803d}.btn-green:disabled{background:#86efac;cursor:not-allowed}
+.btn-indigo{background:#4f46e5;color:#fff}.btn-indigo:hover{background:#4338ca}
+.btn-ghost{background:#fff;color:#64748b;border:1px solid #e2e8f0}.btn-ghost:hover{background:#f8fafc}
+.btn-sm{padding:5px 12px;font-size:12px}
+.btn-copy{background:#fff;color:#2563eb;border:1px solid #bfdbfe;padding:4px 10px;font-size:11px;font-weight:700;border-radius:6px;cursor:pointer}.btn-copy:hover{background:#eff6ff}
 
-/* Toast */
-.toast{position:fixed;bottom:24px;right:24px;background:#0f172a;color:#fff;padding:11px 20px;border-radius:8px;font-size:13px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none;z-index:100}
+.row{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+
+.divider{border:none;border-top:1px solid #f1f5f9;margin:18px 0}
+
+.toast{position:fixed;bottom:24px;right:24px;background:#0f172a;color:#fff;padding:11px 20px;border-radius:8px;font-size:13px;font-weight:600;opacity:0;transition:opacity .25s;pointer-events:none;z-index:999}
 .toast.show{opacity:1}
 
-/* Info note */
-.note{font-size:12px;color:#94a3b8;margin-top:8px}
-
-@media(max-width:720px){
-  .two-col{grid-template-columns:1fr}
-  .result-grid{grid-template-columns:1fr}
-}
+@media(max-width:600px){.result-grid{grid-template-columns:1fr}.how-steps{flex-direction:column;gap:8px}.how-step+.how-step::before{display:none}}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <span style="font-size:24px">🦷</span>
+  <span style="font-size:22px">🦷</span>
   <h1>구강용품 표기기준 확인</h1>
-  <span class="badge">식약처 고시 기반 · AI 검사</span>
+  <span class="badge">Claude.ai 연동</span>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <div class="container">
 
-  <!-- API Key -->
-  <div class="api-bar">
-    <label>Claude API 키</label>
-    <input type="password" id="apiKey" placeholder="sk-ant-api..." oninput="onApiKey()">
-    <span class="api-saved" id="apiSaved" style="display:none">● 저장됨</span>
+  <!-- 사용 방법 -->
+  <div class="how">
+    <div class="how-title">📌 사용 방법</div>
+    <div class="how-steps">
+      <div class="how-step"><div class="num">1</div><div class="txt">규정 스크린샷<br>업로드</div></div>
+      <div class="how-step"><div class="num">2</div><div class="txt">프롬프트 복사<br>→ Claude.ai에 붙여넣기</div></div>
+      <div class="how-step"><div class="num">3</div><div class="txt">Claude 답변을<br>여기에 붙여넣기</div></div>
+      <div class="how-step"><div class="num">4</div><div class="txt">패키지 사진으로<br>표기 검사</div></div>
+    </div>
   </div>
 
-  <div class="two-col">
+  <!-- ═══ STEP 1 : 규정 입력 ═══ -->
+  <div class="card">
+    <div class="card-title">
+      <span class="step-badge">1</span> 표기기준 규정 입력
+    </div>
 
-    <!-- STEP 1 : 규정 입력 -->
-    <div class="card">
-      <div class="card-title">
-        <span class="step">1</span> 표기기준 규정 입력
+    <div class="upload-zone" id="regZone"
+      onclick="document.getElementById('regFile').click()"
+      ondragover="onDragOver(event,'regZone')" ondragleave="onDragLeave('regZone')" ondrop="onDropReg(event)">
+      <div class="ico">📋</div>
+      <div class="lbl">식약처 고시 스크린샷 업로드</div>
+      <div class="sub">PNG · JPG · WEBP · 여러 장 가능</div>
+    </div>
+    <input type="file" id="regFile" accept="image/*" multiple style="display:none" onchange="addRegFiles(this.files);this.value=''">
+
+    <div class="thumbs" id="regThumbs"></div>
+
+    <div class="row">
+      <button class="btn btn-blue" id="genRegPromptBtn" onclick="genRegPrompt()" disabled>① 프롬프트 생성</button>
+      <button class="btn btn-ghost btn-sm" onclick="clearReg()">초기화</button>
+    </div>
+
+    <!-- 생성된 프롬프트 -->
+    <div class="prompt-wrap" id="regPromptWrap">
+      <hr class="divider">
+      <div class="prompt-label">
+        <span>📝 Claude.ai에 붙여넣을 프롬프트</span>
+        <button class="btn-copy" onclick="copyRegPrompt()">복사</button>
       </div>
-
-      <!-- upload zone -->
-      <div class="upload-zone" id="regZone"
-        onclick="document.getElementById('regFile').click()"
-        ondragover="onDragOver(event,'regZone')"
-        ondragleave="onDragLeave('regZone')"
-        ondrop="onDropReg(event)">
-        <div class="ico">📋</div>
-        <div class="label">식약처 고시 스크린샷 업로드</div>
-        <div class="sub">PNG · JPG · WEBP · 여러 장 가능</div>
-      </div>
-      <input type="file" id="regFile" accept="image/*" multiple style="display:none" onchange="addRegFiles(this.files);this.value=''">
-
-      <div class="thumbs" id="regThumbs"></div>
-
+      <div class="prompt-box" id="regPromptBox"></div>
+      <div class="attach-notice" id="regAttachNotice"></div>
       <div class="row">
-        <button class="btn btn-blue" id="extractBtn" onclick="extractRules()" disabled>규정 추출하기</button>
-        <button class="btn btn-ghost btn-sm" onclick="clearReg()">초기화</button>
-        <span class="row-right" id="ruleInfo" style="font-size:12px;color:#64748b"></span>
+        <button class="btn btn-indigo btn-sm" onclick="window.open('https://claude.ai','_blank')">② Claude.ai 열기 →</button>
+        <span style="font-size:12px;color:#94a3b8">이미지 첨부 + 프롬프트 붙여넣기 후 전송</span>
       </div>
 
-      <div id="rulesWrap">
-        <div class="rules-box">
-          <div class="rules-empty">식약처 고시 스크린샷을 추가하고<br>「규정 추출하기」를 눌러주세요.</div>
+      <hr class="divider">
+      <div class="paste-wrap">
+        <div class="paste-label">③ Claude 답변을 여기에 붙여넣기</div>
+        <textarea class="paste-box" id="regPasteBox" placeholder="Claude.ai의 답변을 복사해서 여기에 붙여넣으세요..."></textarea>
+        <div class="row">
+          <button class="btn btn-green" onclick="saveRules()">규정 저장하기</button>
         </div>
       </div>
     </div>
 
-    <!-- STEP 2 : 패키지 검사 -->
-    <div class="card">
-      <div class="card-title">
-        <span class="step">2</span> 패키지 표기 검사
+    <!-- 저장된 규정 표시 -->
+    <div class="rules-saved" id="rulesSaved">
+      <div class="rules-saved-title">
+        <span>✅ 저장된 규정</span>
+        <button class="btn-copy" onclick="clearSavedRules()">삭제</button>
       </div>
+      <div class="rules-saved-body" id="rulesSavedBody"></div>
+    </div>
+  </div>
 
-      <div class="upload-zone" id="pkgZone"
-        onclick="document.getElementById('pkgFile').click()"
-        ondragover="onDragOver(event,'pkgZone')"
-        ondragleave="onDragLeave('pkgZone')"
-        ondrop="onDropPkg(event)">
-        <div class="ico">📦</div>
-        <div class="label">패키지 이미지 업로드</div>
-        <div class="sub">PNG · JPG · WEBP · 1장</div>
-      </div>
-      <input type="file" id="pkgFile" accept="image/*" style="display:none" onchange="setPkg(this.files[0]);this.value=''">
-
-      <img id="pkgPreview" class="pkg-preview" alt="패키지 미리보기">
-
-      <div class="row">
-        <button class="btn btn-green" id="checkBtn" onclick="checkPackage()" disabled>표기 확인하기</button>
-        <button class="btn btn-ghost btn-sm" onclick="clearPkg()">초기화</button>
-      </div>
-      <p class="note">※ 규정을 먼저 추출한 뒤 패키지를 검사하세요</p>
+  <!-- ═══ STEP 2 : 패키지 검사 ═══ -->
+  <div class="card">
+    <div class="card-title">
+      <span class="step-badge">2</span> 패키지 표기 검사
     </div>
 
-  </div><!-- /two-col -->
+    <div class="upload-zone" id="pkgZone"
+      onclick="document.getElementById('pkgFile').click()"
+      ondragover="onDragOver(event,'pkgZone')" ondragleave="onDragLeave('pkgZone')" ondrop="onDropPkg(event)">
+      <div class="ico">📦</div>
+      <div class="lbl">패키지 이미지 업로드</div>
+      <div class="sub">PNG · JPG · WEBP · 1장</div>
+    </div>
+    <input type="file" id="pkgFile" accept="image/*" style="display:none" onchange="setPkg(this.files[0]);this.value=''">
 
-  <!-- STEP 3 : 결과 -->
+    <img id="pkgPreview" class="pkg-preview" alt="패키지 미리보기">
+
+    <div class="row">
+      <button class="btn btn-blue" id="genCheckPromptBtn" onclick="genCheckPrompt()" disabled>① 프롬프트 생성</button>
+      <button class="btn btn-ghost btn-sm" onclick="clearPkg()">초기화</button>
+    </div>
+    <p style="font-size:12px;color:#94a3b8;margin-top:8px">※ STEP 1에서 규정을 먼저 저장해주세요</p>
+
+    <!-- 생성된 프롬프트 -->
+    <div class="prompt-wrap" id="pkgPromptWrap">
+      <hr class="divider">
+      <div class="prompt-label">
+        <span>📝 Claude.ai에 붙여넣을 프롬프트</span>
+        <button class="btn-copy" onclick="copyPkgPrompt()">복사</button>
+      </div>
+      <div class="prompt-box" id="pkgPromptBox"></div>
+      <div class="attach-notice" id="pkgAttachNotice"></div>
+      <div class="row">
+        <button class="btn btn-indigo btn-sm" onclick="window.open('https://claude.ai','_blank')">② Claude.ai 열기 →</button>
+        <span style="font-size:12px;color:#94a3b8">패키지 이미지 첨부 + 프롬프트 붙여넣기 후 전송</span>
+      </div>
+
+      <hr class="divider">
+      <div class="paste-wrap">
+        <div class="paste-label">③ Claude 답변을 여기에 붙여넣기</div>
+        <textarea class="paste-box" id="pkgPasteBox" placeholder="Claude.ai의 답변을 복사해서 여기에 붙여넣으세요..."></textarea>
+        <div class="row">
+          <button class="btn btn-green" onclick="parseResult()">결과 분석하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 3 : 결과 ═══ -->
   <div class="card" id="resultCard" style="display:none">
     <div class="card-title" style="justify-content:space-between">
       <span style="display:flex;align-items:center;gap:8px">
-        <span class="step">3</span> 검사 결과
+        <span class="step-badge">3</span> 검사 결과
       </span>
       <button class="btn btn-ghost btn-sm" onclick="copyResult()">결과 복사</button>
     </div>
@@ -197,43 +241,32 @@ body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:#f8fafc;colo
 </div><!-- /container -->
 
 <script>
-// ── 상태 ────────────────────────────────────────────────────────
-let regImages = [];      // [{base64, mediaType, url}]
-let pkgImage  = null;    // {base64, mediaType, url}
-let rules     = '';      // 추출된 규정 텍스트
-let lastResult = '';     // 마지막 검사 결과
+// ── 상태 ──────────────────────────────────────────────────────────
+let regImages = [];   // [{url, name}]
+let pkgImage  = null; // {url, name}
+let savedRules = '';  // localStorage에 저장된 규정
+let lastResult = '';
 
-// ── 초기화 ──────────────────────────────────────────────────────
+// ── 초기화 ────────────────────────────────────────────────────────
 window.onload = () => {
-  const k = localStorage.getItem('claude_key');
-  if (k) { document.getElementById('apiKey').value = k; showSaved(true); }
   const r = localStorage.getItem('oral_rules');
-  if (r) { rules = r; renderRules(); syncBtns(); }
+  if (r) { savedRules = r; showSavedRules(); }
+  syncBtns();
 };
 
-// ── API 키 ──────────────────────────────────────────────────────
-function onApiKey() {
-  const v = document.getElementById('apiKey').value.trim();
-  if (v) { localStorage.setItem('claude_key', v); showSaved(true); }
-  else   { localStorage.removeItem('claude_key');  showSaved(false); }
-}
-function showSaved(v) { document.getElementById('apiSaved').style.display = v ? 'inline' : 'none'; }
-function apiKey() { return document.getElementById('apiKey').value.trim(); }
-
-// ── 드래그앤드롭 헬퍼 ────────────────────────────────────────────
-function onDragOver(e, id)  { e.preventDefault(); document.getElementById(id).classList.add('drag-over'); }
-function onDragLeave(id)    { document.getElementById(id).classList.remove('drag-over'); }
+// ── 드래그앤드롭 ──────────────────────────────────────────────────
+function onDragOver(e, id) { e.preventDefault(); document.getElementById(id).classList.add('drag-over'); }
+function onDragLeave(id)   { document.getElementById(id).classList.remove('drag-over'); }
 function onDropReg(e)  { e.preventDefault(); onDragLeave('regZone'); addRegFiles(e.dataTransfer.files); }
 function onDropPkg(e)  { e.preventDefault(); onDragLeave('pkgZone'); const f=[...e.dataTransfer.files].find(f=>f.type.startsWith('image/')); if(f) setPkg(f); }
 
-// ── 규정 이미지 ─────────────────────────────────────────────────
+// ── 규정 이미지 ───────────────────────────────────────────────────
 function addRegFiles(fileList) {
   [...fileList].filter(f => f.type.startsWith('image/')).forEach(file => {
     const reader = new FileReader();
     reader.onload = e => {
-      regImages.push({ base64: e.target.result.split(',')[1], mediaType: file.type, url: e.target.result });
-      renderRegThumbs();
-      syncBtns();
+      regImages.push({ url: e.target.result, name: file.name });
+      renderRegThumbs(); syncBtns();
     };
     reader.readAsDataURL(file);
   });
@@ -242,29 +275,27 @@ function addRegFiles(fileList) {
 function renderRegThumbs() {
   document.getElementById('regThumbs').innerHTML = regImages.map((img, i) => `
     <div class="thumb">
-      <img src="${img.url}" alt="규정${i+1}">
+      <img src="${img.url}" alt="${img.name}">
       <button class="thumb-del" onclick="removeReg(${i})">×</button>
     </div>`).join('');
 }
 
-function removeReg(i) { regImages.splice(i,1); renderRegThumbs(); syncBtns(); }
+function removeReg(i) { regImages.splice(i, 1); renderRegThumbs(); syncBtns(); }
 
 function clearReg() {
-  regImages = []; rules = '';
+  regImages = [];
   renderRegThumbs();
-  localStorage.removeItem('oral_rules');
-  document.getElementById('rulesWrap').innerHTML = `
-    <div class="rules-box"><div class="rules-empty">식약처 고시 스크린샷을 추가하고<br>「규정 추출하기」를 눌러주세요.</div></div>`;
-  document.getElementById('ruleInfo').textContent = '';
+  document.getElementById('regPromptWrap').style.display = 'none';
+  document.getElementById('regPasteBox').value = '';
   syncBtns();
 }
 
-// ── 패키지 이미지 ────────────────────────────────────────────────
+// ── 패키지 이미지 ─────────────────────────────────────────────────
 function setPkg(file) {
   if (!file || !file.type.startsWith('image/')) return;
   const reader = new FileReader();
   reader.onload = e => {
-    pkgImage = { base64: e.target.result.split(',')[1], mediaType: file.type, url: e.target.result };
+    pkgImage = { url: e.target.result, name: file.name };
     const prev = document.getElementById('pkgPreview');
     prev.src = pkgImage.url; prev.style.display = 'block';
     document.getElementById('pkgZone').style.display = 'none';
@@ -277,86 +308,94 @@ function clearPkg() {
   pkgImage = null;
   document.getElementById('pkgPreview').style.display = 'none';
   document.getElementById('pkgZone').style.display = 'block';
+  document.getElementById('pkgPromptWrap').style.display = 'none';
+  document.getElementById('pkgPasteBox').value = '';
   syncBtns();
 }
 
-// ── 버튼 상태 동기화 ────────────────────────────────────────────
+// ── 버튼 상태 ─────────────────────────────────────────────────────
 function syncBtns() {
-  document.getElementById('extractBtn').disabled = regImages.length === 0;
-  document.getElementById('checkBtn').disabled   = !(pkgImage && rules);
+  document.getElementById('genRegPromptBtn').disabled  = regImages.length === 0;
+  document.getElementById('genCheckPromptBtn').disabled = !(pkgImage && savedRules);
 }
 
-// ── 규정 표시 ───────────────────────────────────────────────────
-function renderRules() {
-  document.getElementById('rulesWrap').innerHTML =
-    `<div class="rules-box">${esc(rules)}</div>`;
-  document.getElementById('ruleInfo').textContent =
-    `${rules.split('\n').filter(l=>l.trim()).length}줄 추출됨`;
+// ── 저장된 규정 표시 ──────────────────────────────────────────────
+function showSavedRules() {
+  const el = document.getElementById('rulesSaved');
+  if (savedRules) {
+    el.style.display = 'block';
+    document.getElementById('rulesSavedBody').textContent = savedRules;
+  } else {
+    el.style.display = 'none';
+  }
+  syncBtns();
 }
 
-// ── 규정 추출 ───────────────────────────────────────────────────
-async function extractRules() {
-  if (!apiKey()) { toast('API 키를 입력해주세요'); return; }
+function clearSavedRules() {
+  savedRules = '';
+  localStorage.removeItem('oral_rules');
+  showSavedRules();
+}
+
+// ── STEP 1 : 규정 추출 프롬프트 생성 ─────────────────────────────
+function genRegPrompt() {
   if (!regImages.length) { toast('이미지를 먼저 올려주세요'); return; }
 
-  const btn = document.getElementById('extractBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spin"></span> 추출 중...';
+  const prompt = `아래 이미지들은 식약처 고시의 스크린샷입니다.
 
-  try {
-    const content = [];
-    regImages.forEach((img, i) => {
-      content.push({ type:'text', text:`[규정 이미지 ${i+1}/${regImages.length}]` });
-      content.push({ type:'image', source:{ type:'base64', media_type: img.mediaType, data: img.base64 } });
-    });
-    content.push({ type:'text', text:`
-위 이미지들은 식약처 고시의 스크린샷입니다.
+구강용품(치실, 칫솔, 치간칫솔, 치경 등)의 포장·용기에 반드시 표기해야 할 항목들을 모두 추출해주세요.
 
-구강용품(치실, 칫솔, 치간칫솔, 치경 등)의 포장·용기에 반드시 표기해야 할 항목들을 빠짐없이 추출해주세요.
-
-아래 형식으로 정리해주세요:
+다음 형식으로 정리해주세요:
 
 ## 필수 표기 항목
 
-항목마다 다음 내용을 포함해주세요:
+각 항목에 대해:
 - 항목명
-- 세부 표기 기준 (구체적인 기재 방법, 위치, 크기 등 조건이 있으면 포함)
+- 세부 표기 기준 (기재 방법, 위치, 크기 등 조건 포함)
 - 관련 조항 (조문 번호가 있으면)
 
-원문 내용을 최대한 정확하게 반영하고, 어떤 내용도 빠뜨리지 마세요.
-    `.trim() });
+원문 내용을 최대한 정확하게 반영하고, 어떤 항목도 빠뜨리지 마세요.`;
 
-    rules = await claude(content);
-    localStorage.setItem('oral_rules', rules);
-    renderRules();
-    syncBtns();
-    toast('규정 추출 완료!');
-  } catch(e) {
-    toast('오류: ' + e.message);
-  } finally {
-    btn.innerHTML = '규정 추출하기';
-    syncBtns();
-  }
+  document.getElementById('regPromptBox').textContent = prompt;
+
+  const names = regImages.map((img, i) => `  ${i+1}장. ${img.name}`).join('\n');
+  document.getElementById('regAttachNotice').innerHTML =
+    `<strong>📎 첨부할 이미지 (${regImages.length}장):</strong><br>${names.replace(/\n/g,'<br>')}`;
+
+  document.getElementById('regPromptWrap').style.display = 'block';
+  document.getElementById('regPromptWrap').scrollIntoView({ behavior:'smooth', block:'start' });
+  toast('프롬프트 생성됨! Claude.ai에서 이미지를 첨부하고 붙여넣으세요');
 }
 
-// ── 패키지 검사 ─────────────────────────────────────────────────
-async function checkPackage() {
-  if (!apiKey())   { toast('API 키를 입력해주세요'); return; }
-  if (!pkgImage)   { toast('패키지 이미지를 올려주세요'); return; }
-  if (!rules)      { toast('먼저 규정을 추출해주세요'); return; }
+function copyRegPrompt() {
+  const text = document.getElementById('regPromptBox').textContent;
+  navigator.clipboard.writeText(text).then(() => toast('프롬프트 복사됨!'));
+}
 
-  const btn = document.getElementById('checkBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spin"></span> 검사 중...';
+// ── STEP 1 : 규정 저장 ───────────────────────────────────────────
+function saveRules() {
+  const text = document.getElementById('regPasteBox').value.trim();
+  if (!text) { toast('Claude 답변을 붙여넣어 주세요'); return; }
+  savedRules = text;
+  localStorage.setItem('oral_rules', savedRules);
+  showSavedRules();
+  toast('규정이 저장되었습니다!');
+}
 
-  try {
-    const content = [
-      { type:'text', text:`아래는 식약처 고시에서 추출한 구강용품 필수 표기 기준입니다:\n\n${rules}\n\n───\n\n위 기준을 참고하여 다음 패키지 이미지를 검사해주세요.` },
-      { type:'image', source:{ type:'base64', media_type: pkgImage.mediaType, data: pkgImage.base64 } },
-      { type:'text', text:`
-패키지 이미지에서 읽을 수 있는 표기 내용을 위 기준과 비교 분석해주세요.
+// ── STEP 2 : 패키지 검사 프롬프트 생성 ───────────────────────────
+function genCheckPrompt() {
+  if (!pkgImage)    { toast('패키지 이미지를 먼저 올려주세요'); return; }
+  if (!savedRules)  { toast('STEP 1에서 규정을 먼저 저장해주세요'); return; }
 
-결과는 반드시 아래 4개 섹션 형식으로 작성해주세요. 각 섹션 제목은 정확히 이 문자열을 사용해주세요:
+  const prompt = `아래는 식약처 고시에서 추출한 구강용품 필수 표기 기준입니다:
+
+${savedRules}
+
+───
+
+위 기준을 참고하여, 첨부한 패키지 이미지의 표기사항을 검사해주세요.
+
+결과는 반드시 아래 4개 섹션 형식으로 작성해주세요:
 
 ## ❌ 누락된 항목
 기준에서 필수지만 패키지에서 확인되지 않는 항목. 없으면 "해당 없음" 기재.
@@ -370,41 +409,50 @@ async function checkPackage() {
 ## ✅ 정상 표기
 기준에 맞게 올바르게 표기된 항목.
 
-각 항목에 대해 간결하고 구체적으로 설명해주세요.
-      `.trim() }
-    ];
+각 항목에 대해 간결하고 구체적으로 설명해주세요.`;
 
-    lastResult = await claude(content);
-    showResult(lastResult);
-    toast('검사 완료!');
-  } catch(e) {
-    toast('오류: ' + e.message);
-  } finally {
-    btn.innerHTML = '표기 확인하기';
-    syncBtns();
-  }
+  document.getElementById('pkgPromptBox').textContent = prompt;
+  document.getElementById('pkgAttachNotice').innerHTML =
+    `<strong>📎 첨부할 이미지:</strong> ${pkgImage.name}`;
+
+  document.getElementById('pkgPromptWrap').style.display = 'block';
+  document.getElementById('pkgPromptWrap').scrollIntoView({ behavior:'smooth', block:'start' });
+  toast('프롬프트 생성됨! Claude.ai에서 패키지 이미지를 첨부하고 붙여넣으세요');
 }
 
-// ── 결과 렌더링 ─────────────────────────────────────────────────
+function copyPkgPrompt() {
+  const text = document.getElementById('pkgPromptBox').textContent;
+  navigator.clipboard.writeText(text).then(() => toast('프롬프트 복사됨!'));
+}
+
+// ── STEP 3 : 결과 파싱 ───────────────────────────────────────────
+function parseResult() {
+  const text = document.getElementById('pkgPasteBox').value.trim();
+  if (!text) { toast('Claude 답변을 붙여넣어 주세요'); return; }
+  lastResult = text;
+  showResult(text);
+}
+
 function showResult(text) {
   const sections = [
-    { key:'missing',   emoji:'❌', title:'누락된 항목',  heading:'누락된 항목' },
-    { key:'wrong',     emoji:'⚠️', title:'잘못된 표기', heading:'잘못된 표기' },
-    { key:'ambiguous', emoji:'🤔', title:'애매한 항목',  heading:'애매한 항목' },
-    { key:'ok',        emoji:'✅', title:'정상 표기',   heading:'정상 표기' },
+    { cls:'miss',  title:'❌ 누락된 항목',  key:'누락된 항목' },
+    { cls:'wrong', title:'⚠️ 잘못된 표기', key:'잘못된 표기' },
+    { cls:'amb',   title:'🤔 애매한 항목',  key:'애매한 항목' },
+    { cls:'ok',    title:'✅ 정상 표기',   key:'정상 표기' },
   ];
 
   document.getElementById('resultGrid').innerHTML = sections.map(s => {
-    const body = extractSection(text, s.heading) || '정보 없음';
+    const body = extractSection(text, s.key) || '정보 없음';
     return `
-      <div class="result-box ${s.key}">
-        <div class="result-box-title">${s.emoji} ${s.title}</div>
-        <div class="result-box-body">${esc(body)}</div>
+      <div class="rbox ${s.cls}">
+        <div class="rbox-title">${s.title}</div>
+        <div class="rbox-body">${esc(body)}</div>
       </div>`;
   }).join('');
 
   document.getElementById('resultCard').style.display = 'block';
   document.getElementById('resultCard').scrollIntoView({ behavior:'smooth', block:'start' });
+  toast('결과 분석 완료!');
 }
 
 function extractSection(text, heading) {
@@ -418,41 +466,16 @@ function copyResult() {
   navigator.clipboard.writeText(lastResult).then(() => toast('결과가 복사되었습니다'));
 }
 
-// ── Claude API ───────────────────────────────────────────────────
-async function claude(content) {
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey(),
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-calls': 'true'
-    },
-    body: JSON.stringify({
-      model: 'claude-opus-4-6',
-      max_tokens: 4096,
-      messages: [{ role:'user', content }]
-    })
-  });
-
-  if (!res.ok) {
-    const err = await res.json().catch(()=>({}));
-    throw new Error(err.error?.message || `HTTP ${res.status}`);
-  }
-  return (await res.json()).content[0].text;
-}
-
-// ── 유틸 ────────────────────────────────────────────────────────
+// ── 유틸 ─────────────────────────────────────────────────────────
 function esc(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-let _toastT;
+let _tt;
 function toast(msg) {
   const el = document.getElementById('toast');
   el.textContent = msg; el.classList.add('show');
-  clearTimeout(_toastT);
-  _toastT = setTimeout(() => el.classList.remove('show'), 3000);
+  clearTimeout(_tt); _tt = setTimeout(() => el.classList.remove('show'), 3000);
 }
 </script>
 </body>
